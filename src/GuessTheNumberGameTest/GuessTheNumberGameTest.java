@@ -14,10 +14,10 @@ public class GuessTheNumberGameTest {
         GuessTheNumberGame game = new GuessTheNumberGame();
         Player mockPlayer = mock(Player.class);
 
-        when(mockPlayer.makeGuess()).thenReturn(50);
+        when(mockPlayer.makeGuess()).thenReturn(10);
         game.targetNumber(100);
         int guess = game.checkGuess(mockPlayer);
 
-        assertEquals(50, guess);
+        assertEquals(10, guess);
     }
 }
