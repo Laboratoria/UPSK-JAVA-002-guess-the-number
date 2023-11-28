@@ -24,7 +24,7 @@ public class GuessTheNumberGame {
             currentPlayer = (currentPlayer instanceof HumanPlayer) ? computerPlayer : humanPlayer;
         }
     }
-    public static void checkGuess(Player player) {
+    public static int checkGuess(Player player) {
         int guess = player.makeGuess();
         if (guess < targetNumber) {
             System.out.println("The guess " + guess + " is too low");
@@ -33,6 +33,7 @@ public class GuessTheNumberGame {
         } else {
             player.setGuessed(true);
         }
+        return guess;
     }
     public static void displayGameResult(Player winner) {
         System.out.println(targetNumber + " is correct, " + winner.getName() + " wins!");
