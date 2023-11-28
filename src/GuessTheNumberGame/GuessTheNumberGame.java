@@ -1,11 +1,18 @@
+package GuessTheNumberGame;
+
 import java.util.Random; // import the Random class
-public class GuessTheNumber {
-    private static Random random = new Random(); //instance an object from class Random
-    private static int targetNumber;
+import java.util.Scanner;
+
+public class GuessTheNumberGame {
+    public static int targetNumber;
     public static void main(String[] args) {
+        Random random = new Random(); //instance an object from class Random
         targetNumber = random.nextInt(100); //generate a random value from type int
-        Player humanPlayer = new HumanPlayer("Player 1");
-        Player computerPlayer = new ComputerPlayer("Player 2");
+        Scanner inputUserName = new Scanner(System.in); // Create a Scanner object
+        System.out.println("Let`s play! Please, type your name:");
+        String playerName = inputUserName.nextLine(); // Read user input
+        Player humanPlayer = new HumanPlayer(playerName);
+        Player computerPlayer = new ComputerPlayer("GuessTheNumberGame.Player 2");
 
         Player currentPlayer = humanPlayer;
         while (true) {
@@ -27,9 +34,8 @@ public class GuessTheNumber {
             player.setGuessed(true);
         }
     }
-
     public static void displayGameResult(Player winner) {
         System.out.println(targetNumber + " is correct, " + winner.getName() + " wins!");
-        System.out.println(winner.getName() + "guesses: " + winner.getGuesses());
+        System.out.println(winner.getName() + " guesses: " + winner.getGuesses());
     }
 }

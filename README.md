@@ -114,10 +114,10 @@ Lida com a lógica principal, decide qual jogador assume o próximo turno.
 **Métodos estáticos (`static`):**
 
 * `main(String[] args)`: Inicia o jogo e gera o número aleatório.
-* `checkGuess(Player player)`: Executa um turno, obtém a suposição e avalia
+* `checkGuess(GuessTheNumberGame.Player player)`: Executa um turno, obtém a suposição e avalia
   o novo estado da partida.
 
-#### `Player`
+#### `GuessTheNumberGame.Player`
 
 **Propósito:**
 Representa uma jogadora genérica. É uma classe abstrata. Define os
@@ -134,21 +134,21 @@ atributos e métodos que todas as _classes_ de jogadoras devem compartilhar:
 * `getName()`: Retorna o nome da jogadora.
 * `getGuesses()`: Retorna o histórico de suposições da jogadora.
 
-#### `HumanPlayer` e `ComputerPlayer` (herdam de `Player`)
+#### `GuessTheNumberGame.HumanPlayer` e `GuessTheNumberGame.ComputerPlayer` (herdam de `GuessTheNumberGame.Player`)
 
 **Propósito:**
 Representa as jogadoras _Humana_ e _Computadora_, respectivamente.
 
 **Métodos:**
 
-* `makeGuess()`: Método que cada classe que herda de `Player` deve implementar.
+* `makeGuess()`: Método que cada classe que herda de `GuessTheNumberGame.Player` deve implementar.
 
 **Relações:**
 
-* A classe `GuessTheNumberGame` interage com as classes `HumanPlayer` e
-  `ComputerPlayer` para gerenciar o jogo.
-* Tanto a classe `HumanPlayer` quanto `Computer Player` são subclasses de
-  `Player`, o que implica que herdam todas as suas propriedades e métodos, mas
+* A classe `GuessTheNumberGame` interage com as classes `GuessTheNumberGame.HumanPlayer` e
+  `GuessTheNumberGame.ComputerPlayer` para gerenciar o jogo.
+* Tanto a classe `GuessTheNumberGame.HumanPlayer` quanto `Computer GuessTheNumberGame.Player` são subclasses de
+  `GuessTheNumberGame.Player`, o que implica que herdam todas as suas propriedades e métodos, mas
   também têm algumas características adicionais próprias.
 
 Este design de classes permite separar as responsabilidades, facilitando
